@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Sushi Maki (Norimaki)",
+        "description": "Maki sushi is a type of sushi that we often encounter in Indonesia, usually also called norimaki. The characteristic of norimaki is that it has a round shape filled with various side dishes, such as sliced ​​cucumber, salmon, beef, eggs, seafood, vegetables, avocado, and others. All the side dishes are wrapped in rice that has been seasoned with rice vinegar, then the outermost part is wrapped in nori or dried Japanese seaweed. At first glance, norimaki is similar to kimbap in Korea in terms of its physical appearance and filling, but the rice kimbap is mixed with sesame oil, not vinegar like in typical Japanese sushi. Apart from that, the way to eat sushi is by dipping it in wasabi paste and Japanese soy sauce. A practical way to make your own sushi at home can be using Mamasuka Sushi Nori Roasted Seaweed, namely roasted seaweed. It tastes delicious and has a distinctive aroma, so typical Japanese dishes feel more authentic. The sheet is wide, not too thin, and doesn't tear easily, so it's easy to roll with rice and other side dishes.",
+        "price": "135",
+        "image_path": "assets/images/sushi_maki.jpg",
+        "rating": "4.9"
+    },
+    {
+        "name": "Nigiri Sushi",
+        "description": "Most sushi that we know of is usually wrapped in seaweed or nori and the side dish filling is in the middle of the roll, but this is different with nigiri. Nigiri sushi is processed sushi served in the form of small, oval balls of rice, then topped with a variety of fresh, raw seafood, for example fish eggs, omelettes, octopus, salmon fillets, tuna, squid, shrimp, and so on. Nigiri is very popular and often found in Japanese restaurants in Indonesia because of its unique taste, namely a combination of raw seafood and rice. There is no need to be afraid of a fishy smell when eating nigiri, because it has been specially processed so that it is comfortable to eat and safe for digestion.",
+        "price": "178",
+        "image_path": "assets/images/sushi_nigiri.jpg",
+        "rating": "4.8"
+    },
+    {
+        "name": "Inarizushi",
+        "description": "This typical Japanese food is sushi wrapped in a bag of fried tofu, not dried seaweed or nori. So the texture of the inarizushi filling is soft and tasty, while the outside feels crunchy when bitten. The filling for inarizushi is the same as sushi in general, namely soft, seasoned rice mixed with rice vinegar. But now, the contents have been combined with various side dishes, such as cooked seafood, omelettes, meat, sausages and vegetables. Inarizushi is widely liked because of its unique combination of flavors, usually used as an accompaniment when eating bento.",
+        "price": "128",
+        "image_path": "assets/images/inarizushi.jpg",
+        "rating": "4.9"
+    },
+    {
+        "name": "Gunkan",
+        "description": "At first glance, gunkan sushi is similar to norimaki, but the shape is more oval and slightly taller like a warship, so it is called gunkan. Not only is it wrapped in sheets of dried seaweed or nori, gunkan is also often wrapped in thin slices of cucumber or fresh zucchini. Gunkan is usually served with rice wrapped in thin slices of Japanese cucumber skin or nori, then topped with lots of toppings, resulting in a unique and fresh taste when eaten. The types of toppings that are usually used include fish eggs, fish meat, sliced ​​beef or chicken, shrimp, octopus, squid, and other types of side dishes.",
+        "price": "189",
+        "image_path": "assets/images/gunkan.jpg",
+        "rating": "5.0"
+    },
+    {
+        "name": "Chirashi",
+        "description": "Chirashi is the name of a sushi bowl that is quite popular, but not all Japanese restaurants in Indonesia sell this food. Chirashi is different from other sushi because it is not wrapped in nori or tofu bags. In fact, if you pay attention, the shape tends to resemble a rice bowl topped with sashimi. The way to serve chirashi is with rice sprinkled with spices and rice vinegar on the bottom, then on top it is topped with a sprinkling of nori, fresh seafood, chicken, beef, fish eggs, cucumber slices, and others. Chirashi is very suitable as a heavy meal or party dish, because the portions are large and filling.",
+        "price": "189",
+        "image_path": "assets/images/chirashi.jpg",
+        "rating": "5.0"
+    }
+]
