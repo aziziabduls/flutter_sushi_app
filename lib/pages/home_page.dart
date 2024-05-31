@@ -28,22 +28,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   void gotoDetailFood(int i) {
-    // final cart = context.read<Cart>();
-    // final food = cart.allFood;
-
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => FoodDetail(
-          food: food[i],
-        ),
+        builder: (_) {
+          return FoodDetail(food: food[i]);
+        },
       ),
     );
   }
 
   @override
   void initState() {
-    // context.read<Cart>().getAllFood();
     loadFood();
 
     super.initState();
@@ -54,6 +50,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
+        centerTitle: false,
         title: const Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

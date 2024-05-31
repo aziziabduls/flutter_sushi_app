@@ -16,6 +16,7 @@ class _WelcomePageState extends State<WelcomePage> {
       extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        centerTitle: false,
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
         title: const Text(

@@ -21,8 +21,7 @@ class CartPage extends StatelessWidget {
     return Consumer<Cart>(
       builder: (context, value, child) {
         for (var cartModel in value.cart) {
-          price = int.parse(cartModel.quantity.toString()) *
-              int.parse(cartModel.price.toString()).toDouble();
+          price = int.parse(cartModel.quantity.toString()) * int.parse(cartModel.price.toString()).toDouble();
           totalPrice += double.parse(price.toString());
           taxAndService = (totalPrice * 0.11).toDouble();
           totalPayment = totalPrice + taxAndService.toDouble();
@@ -126,8 +125,7 @@ class CartPage extends StatelessWidget {
                                   return AlertDialog(
                                     content: Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         const Text(
                                           'Delete food from cart',
@@ -162,9 +160,7 @@ class CartPage extends StatelessWidget {
                                             const SizedBox(width: 8),
                                             Expanded(
                                               child: FloatingActionButton(
-                                                backgroundColor:
-                                                    Theme.of(context)
-                                                        .primaryColor,
+                                                backgroundColor: Theme.of(context).primaryColor,
                                                 elevation: 0,
                                                 onPressed: () {
                                                   Navigator.pop(context);
@@ -250,96 +246,101 @@ class CartPage extends StatelessWidget {
                 ),
           bottomNavigationBar: value.cart.isEmpty
               ? const SizedBox.shrink()
-              : Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.grey,
+              : Container(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  child: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(bottom: 10),
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text('Price'),
+                                    Text(
+                                      'IDR $totalPrice',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text('Tax and Service'),
+                                    Text(
+                                      'IDR $taxAndService',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Divider(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      'Total Price',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'IDR $totalPayment',
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
+                          CupertinoButton(
+                            color: Theme.of(context).primaryColor,
+                            padding: const EdgeInsets.all(20),
+                            borderRadius: BorderRadius.circular(30),
+                            onPressed: () {
+                              // addToCart();
+                            },
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text('Price'),
                                 Text(
-                                  'IDR $totalPrice',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text('Tax and Service'),
-                                Text(
-                                  'IDR $taxAndService',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Divider(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  'Total Price',
+                                  'Payment',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   ),
                                 ),
-                                Text(
-                                  'IDR $totalPayment',
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
                                 ),
                               ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      CupertinoButton(
-                        color: Theme.of(context).primaryColor,
-                        padding: const EdgeInsets.all(20),
-                        borderRadius: BorderRadius.circular(30),
-                        onPressed: () {
-                          // addToCart();
-                        },
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Payment',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
         );

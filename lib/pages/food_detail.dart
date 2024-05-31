@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:readmore/readmore.dart';
 import 'package:sushi_app/models/food.dart';
 import 'package:sushi_app/pages/cart_pages.dart';
 import 'package:sushi_app/provider/cart.dart';
@@ -58,69 +57,73 @@ class _FoodDetailState extends State<FoodDetail> {
       isDismissible: false,
       showDragHandle: true,
       builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(16),
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Food was added to cart',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+        return SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Food was added to cart',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                '${widget.food.name} was added to cart, would you like to add some food?',
-                style: const TextStyle(
-                  fontSize: 18.0,
+                Text(
+                  '${widget.food.name} was added to cart, would you like to add some food?',
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              Row(
-                children: [
-                  Expanded(
-                    child: FloatingActionButton(
-                      backgroundColor: const Color.fromARGB(109, 140, 94, 91),
-                      elevation: 0,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        goToCart();
-                      },
-                      child: const Text(
-                        'View cart',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                const SizedBox(height: 30),
+                Row(
+                  children: [
+                    Expanded(
+                      child: FloatingActionButton(
+                        heroTag: 'goToCart',
+                        backgroundColor: const Color.fromARGB(109, 140, 94, 91),
+                        elevation: 0,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          goToCart();
+                        },
+                        child: const Text(
+                          'View cart',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: FloatingActionButton(
-                      backgroundColor: Theme.of(context).primaryColor,
-                      elevation: 0,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        'Sure',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: FloatingActionButton(
+                        heroTag: 'pop',
+                        backgroundColor: Theme.of(context).primaryColor,
+                        elevation: 0,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          'Sure',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },
@@ -195,90 +198,99 @@ class _FoodDetailState extends State<FoodDetail> {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 80,
         color: Theme.of(context).primaryColor,
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          children: [
-            FloatingActionButton(
-              backgroundColor: const Color.fromARGB(109, 140, 94, 91),
-              elevation: 0,
-              onPressed: () {
-                incrementQuantity();
-              },
-              child: const Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-            ),
-            FloatingActionButton(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              onPressed: () {},
-              child: Text(
-                quantityCount.toString(),
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+        child: SafeArea(
+          child: Container(
+            height: 80,
+            color: Theme.of(context).primaryColor,
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                FloatingActionButton(
+                  heroTag: 'q',
+                  backgroundColor: const Color.fromARGB(109, 140, 94, 91),
+                  elevation: 0,
+                  onPressed: () {
+                    incrementQuantity();
+                  },
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ),
-            FloatingActionButton(
-              backgroundColor: const Color.fromARGB(109, 140, 94, 91),
-              elevation: 0,
-              onPressed: () {
-                decrementQuantiry();
-              },
-              child: const Icon(
-                Icons.remove,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: FloatingActionButton(
-                backgroundColor: const Color.fromARGB(109, 140, 94, 91),
-                elevation: 0,
-                onPressed: () {
-                  addToCart();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                FloatingActionButton(
+                  heroTag: 'w',
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  onPressed: () {},
+                  child: Text(
+                    quantityCount.toString(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                FloatingActionButton(
+                  heroTag: 'r',
+                  backgroundColor: const Color.fromARGB(109, 140, 94, 91),
+                  elevation: 0,
+                  onPressed: () {
+                    decrementQuantiry();
+                  },
+                  child: const Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: FloatingActionButton(
+                    heroTag: 't',
+                    backgroundColor: const Color.fromARGB(109, 140, 94, 91),
+                    elevation: 0,
+                    onPressed: () {
+                      addToCart();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'IDR $costPayment',
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: Colors.white,
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'IDR $costPayment',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const Text(
+                                'Add to cart',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
-                          const Text(
-                            'Add to cart',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                          const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
                           ),
                         ],
                       ),
-                      const Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -299,7 +311,7 @@ class _FoodDetailState extends State<FoodDetail> {
                   height: MediaQuery.of(context).size.height * 0.4,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    // borderRadius: BorderRadius.circular(10),
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -353,16 +365,14 @@ class _FoodDetailState extends State<FoodDetail> {
                   Row(
                     children: [
                       RatingBar.builder(
-                        initialRating:
-                            double.parse(widget.food.rating.toString()),
+                        initialRating: double.parse(widget.food.rating.toString()),
                         minRating: 1,
                         maxRating: 5,
                         direction: Axis.horizontal,
                         allowHalfRating: true,
                         itemCount: 5,
                         itemSize: 20,
-                        itemPadding:
-                            const EdgeInsets.symmetric(horizontal: 1.0),
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
                         itemBuilder: (context, _) => const Icon(
                           Icons.star,
                           color: Colors.amber,
@@ -377,24 +387,26 @@ class _FoodDetailState extends State<FoodDetail> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  // Text(
-                  //   widget.food.description.toString(),
-                  //   style: const TextStyle(
-                  //     fontSize: 15.0,
-                  //   ),
-                  // ),
-                  ReadMoreText(
+                  Text(
                     widget.food.description.toString(),
-                    trimMode: TrimMode.Line,
-                    trimLines: 10,
-                    colorClickableText: Colors.black,
-                    trimCollapsedText: 'Show more',
-                    trimExpandedText: 'Show less',
-                    moreStyle: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+                    style: const TextStyle(
+                      fontSize: 15.0,
                     ),
                   ),
+                  const SizedBox(height: 20),
+
+                  // ReadMoreText(
+                  //   widget.food.description.toString(),
+                  //   trimMode: TrimMode.Line,
+                  //   trimLines: 10,
+                  //   colorClickableText: Colors.black,
+                  //   trimCollapsedText: 'Show more',
+                  //   trimExpandedText: 'Show less',
+                  //   moreStyle: const TextStyle(
+                  //     fontSize: 14,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
                   const SizedBox(height: 100),
                 ],
               ),
